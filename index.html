@@ -11,8 +11,6 @@
       --sea-blue: #247b91;
       --sky-blue: #e8f5f7;
       --sunset: #ef754e;
-      --sakura: #f3b6b0;
-      --sand: #fff8ed;
       --gold: #d69b2d;
       --green: #32865b;
       --yellow: #fff1bd;
@@ -179,7 +177,7 @@
       border-bottom: 1px solid #edf1f2;
     }
 
-    .timeline-item:last-child {
+    .timeline-item:last-of-type {
       border-bottom: 0;
     }
 
@@ -198,6 +196,20 @@
 
     .place-link:hover {
       color: var(--sunset);
+    }
+
+    .route-note {
+      margin: -2px 0 7px 117px;
+      padding: 9px 12px;
+      background: #f0f8fa;
+      border-left: 4px solid var(--sea-blue);
+      border-radius: 9px;
+      color: #49646f;
+      font-size: 0.88rem;
+    }
+
+    .route-note strong {
+      color: var(--hakata-blue);
     }
 
     .store-grid,
@@ -251,20 +263,8 @@
       font-size: 0.9rem;
     }
 
-    .button.orange {
-      background: var(--sunset);
-    }
-
     .button.green {
       background: var(--green);
-    }
-
-    .button.gold {
-      background: var(--gold);
-    }
-
-    .button.gray {
-      background: #76838b;
     }
 
     .status {
@@ -273,10 +273,6 @@
       font-weight: 800;
       color: var(--green);
       margin-bottom: 8px;
-    }
-
-    .status.pending {
-      color: #ad7700;
     }
 
     .small {
@@ -317,6 +313,10 @@
         gap: 8px;
       }
 
+      .route-note {
+        margin-left: 90px;
+      }
+
       main {
         padding-left: 10px;
         padding-right: 10px;
@@ -332,25 +332,34 @@
 <body>
 
   <header>
-    <div class="header-icons">🌊 🗼 🏮</div>
+    <div class="header-icons">🌊 🗼 ⛩️ 🏮</div>
     <h1>福岡旅行導覽</h1>
-    <p>海邊、屋台、藥妝與購物</p>
-    <p>2026/10/25（日）– 10/28（三）｜住宿：PREMIAGE 室見</p>
+    <p>海邊、神社、太宰府、屋台與購物</p>
+    <p>2026/10/25（日）– 10/28（三）｜住宿：PREMIIAGE 室見</p>
   </header>
 
   <nav class="tabs">
-    <button class="tab-button active" onclick="openTab('schedule', this)">🗓 行程</button>
-    <button class="tab-button" onclick="openTab('stores', this)">🛍 店家</button>
-    <button class="tab-button" onclick="openTab('coupons', this)">🎟 優惠券</button>
+    <button class="tab-button active" onclick="openTab('schedule', this)">
+      🗓 行程
+    </button>
+
+    <button class="tab-button" onclick="openTab('stores', this)">
+      🛍 店家
+    </button>
+
+    <button class="tab-button" onclick="openTab('coupons', this)">
+      🎟 優惠券
+    </button>
   </nav>
 
   <main>
 
-    <!-- 行程 -->
+    <!-- ==================== 行程 ==================== -->
     <section id="schedule" class="tab-content active">
 
       <div class="intro">
         行程中的藍色底線地點都可以直接點擊，會開啟 Google Maps。
+        每個行程下方也標示了建議交通方式。
       </div>
 
       <div class="notice flight">
@@ -358,6 +367,12 @@
         國際線建議至少在起飛前 2 小時抵達機場。
         去程 15:30 起飛，建議 13:30 前抵達高雄機場；
         回程 18:45 起飛，建議 16:45 前抵達福岡機場國際線航廈。
+      </div>
+
+      <div class="notice warning">
+        <strong>🧭 行程排序原則</strong><br>
+        每天盡量從住宿出發後先前往較遠地點，再一路往市區或回程方向移動，
+        減少來回繞路。實際班次、施工與營業時間，請出發前再用 Google Maps 確認。
       </div>
 
       <!-- Day 1 -->
@@ -385,7 +400,7 @@
           <div class="timeline-item">
             <div class="time">18:55</div>
             <div>
-              抵達福岡機場 FUK 第一航廈。
+              抵達福岡機場 FUK。
             </div>
           </div>
 
@@ -393,26 +408,43 @@
             <div class="time">晚上</div>
             <div>
               前往
-              <a class="place-link" href="https://www.google.com/maps/search/?api=1&query=PREMIAGE+Muromi+Fukuoka" target="_blank">
+              <a class="place-link"
+                 href="https://www.google.com/maps/search/?api=1&query=PREMIAGE+Muromi+Fukuoka"
+                 target="_blank">
                 PREMIIAGE 室見
               </a>
               Check In。
             </div>
           </div>
 
+          <div class="route-note">
+            🚇 <strong>交通：</strong>
+            福岡機場國內線可搭地下鐵機場線；
+            若抵達國際線，需先搭免費接駁車至國內線，再搭地下鐵。
+          </div>
+
           <div class="timeline-item">
             <div class="time">Check In 後</div>
             <div>
               到
-              <a class="place-link" href="https://www.google.com/maps/search/?api=1&query=MaxValu+Express+Muromi" target="_blank">
+              <a class="place-link"
+                 href="https://www.google.com/maps/search/?api=1&query=MaxValu+Express+Muromi"
+                 target="_blank">
                 MaxValu Express 室見店
               </a>
               或
-              <a class="place-link" href="https://www.google.com/maps/search/?api=1&query=Drug+Seims+Sawara+Minamisho" target="_blank">
+              <a class="place-link"
+                 href="https://www.google.com/maps/search/?api=1&query=Drug+Seims+Sawara+Minamisho"
+                 target="_blank">
                 Drug Seims 早良南庄店
               </a>
               買晚餐、飲料、零食與隔天早餐。
             </div>
+          </div>
+
+          <div class="route-note">
+            🚶 <strong>交通：</strong>
+            住宿附近採步行或依 Google Maps 建議前往。
           </div>
 
           <div class="timeline-item">
@@ -427,66 +459,192 @@
 
       <!-- Day 2 -->
       <div class="day-card">
-        <h2 class="day-title">Day 2｜10/26（一）市區景點＋鳥貴族</h2>
+        <h2 class="day-title">Day 2｜10/26（一）大濠、神社、博多與西新</h2>
 
         <div class="timeline">
 
           <div class="timeline-item">
             <div class="time">上午</div>
             <div>
-              <a class="place-link" href="https://www.google.com/maps/search/?api=1&query=Ohori+Park+Fukuoka" target="_blank">
+              從住宿出發，搭地下鐵前往
+              <a class="place-link"
+                 href="https://www.google.com/maps/search/?api=1&query=Ohori+Park+Fukuoka"
+                 target="_blank">
                 大濠公園
               </a>
-              →
-              <a class="place-link" href="https://www.google.com/maps/search/?api=1&query=Fukuoka+Castle+Ruins" target="_blank">
+              。
+            </div>
+          </div>
+
+          <div class="route-note">
+            🚇 <strong>地鐵：</strong>
+            室見站搭福岡市地下鐵機場線，
+            於大濠公園站下車。
+          </div>
+
+          <div class="timeline-item">
+            <div class="time">上午</div>
+            <div>
+              步行前往
+              <a class="place-link"
+                 href="https://www.google.com/maps/search/?api=1&query=Fukuoka+Gokoku+Shrine"
+                 target="_blank">
+                福岡縣護國神社
+              </a>
+              參拜。
+            </div>
+          </div>
+
+          <div class="route-note">
+            🚶 <strong>交通：</strong>
+            從大濠公園步行前往護國神社。
+          </div>
+
+          <div class="timeline-item">
+            <div class="time">上午</div>
+            <div>
+              前往
+              <a class="place-link"
+                 href="https://www.google.com/maps/search/?api=1&query=Fukuoka+Castle+Ruins"
+                 target="_blank">
                 福岡城跡／舞鶴公園
               </a>
+              散步與拍照。
             </div>
+          </div>
+
+          <div class="route-note">
+            🚶 <strong>交通：</strong>
+            從護國神社步行前往福岡城跡／舞鶴公園。
           </div>
 
           <div class="timeline-item">
             <div class="time">中午</div>
             <div>
-              前往
-              <a class="place-link" href="https://www.google.com/maps/search/?api=1&query=Tenjin+Chikagai" target="_blank">
+              搭地下鐵前往
+              <a class="place-link"
+                 href="https://www.google.com/maps/search/?api=1&query=Tenjin+Chikagai"
+                 target="_blank">
                 天神地下街
               </a>
               午餐與逛街。
             </div>
           </div>
 
+          <div class="route-note">
+            🚇 <strong>地鐵：</strong>
+            從大濠公園站搭機場線至天神站。
+          </div>
+
           <div class="timeline-item">
             <div class="time">下午</div>
             <div>
-              <a class="place-link" href="https://www.google.com/maps/search/?api=1&query=Kushida+Shrine+Fukuoka" target="_blank">
+              前往
+              <a class="place-link"
+                 href="https://www.google.com/maps/search/?api=1&query=Sumiyoshi+Shrine+Fukuoka"
+                 target="_blank">
+                住吉神社
+              </a>
+              參拜。
+            </div>
+          </div>
+
+          <div class="route-note">
+            🚇 <strong>地鐵：</strong>
+            從天神站搭地下鐵至博多站，
+            再步行前往住吉神社。
+          </div>
+
+          <div class="timeline-item">
+            <div class="time">下午</div>
+            <div>
+              前往
+              <a class="place-link"
+                 href="https://www.google.com/maps/search/?api=1&query=Kushida+Shrine+Fukuoka"
+                 target="_blank">
                 櫛田神社
               </a>
-              →
-              <a class="place-link" href="https://www.google.com/maps/search/?api=1&query=Canal+City+Hakata" target="_blank">
+              參拜。
+            </div>
+          </div>
+
+          <div class="route-note">
+            🚇 <strong>地鐵：</strong>
+            可從博多站搭七隈線至櫛田神社前站；
+            也可以從住吉神社步行或依 Google Maps 前往。
+          </div>
+
+          <div class="timeline-item">
+            <div class="time">下午</div>
+            <div>
+              步行前往
+              <a class="place-link"
+                 href="https://www.google.com/maps/search/?api=1&query=Canal+City+Hakata"
+                 target="_blank">
                 Canal City 博多
               </a>
+              逛街或用餐。
             </div>
+          </div>
+
+          <div class="route-note">
+            🚶 <strong>交通：</strong>
+            從櫛田神社步行前往 Canal City 博多。
           </div>
 
           <div class="timeline-item">
             <div class="time">傍晚</div>
             <div>
-              <a class="place-link" href="https://www.google.com/maps/search/?api=1&query=Nakasu+Fukuoka" target="_blank">
+              前往
+              <a class="place-link"
+                 href="https://www.google.com/maps/search/?api=1&query=Nakasu+Fukuoka"
+                 target="_blank">
                 中洲
               </a>
               散步。
             </div>
           </div>
 
+          <div class="route-note">
+            🚶 <strong>交通：</strong>
+            從 Canal City 博多步行前往中洲。
+          </div>
+
           <div class="timeline-item">
             <div class="time">18:00</div>
             <div>
               到
-              <a class="place-link" href="https://www.google.com/maps/search/?api=1&query=Torikizoku+Nishijin+Fukuoka" target="_blank">
+              <a class="place-link"
+                 href="https://www.google.com/maps/search/?api=1&query=Torikizoku+Nishijin+Fukuoka"
+                 target="_blank">
                 鳥貴族西新店
               </a>
-              晚餐，吃完搭地鐵回室見。
+              晚餐。
             </div>
+          </div>
+
+          <div class="route-note">
+            🚇 <strong>地鐵：</strong>
+            從中洲川端站搭福岡市地下鐵機場線至西新站，
+            再步行前往店家。
+          </div>
+
+          <div class="timeline-item">
+            <div class="time">晚上</div>
+            <div>
+              用餐後搭地鐵回
+              <a class="place-link"
+                 href="https://www.google.com/maps/search/?api=1&query=Muromi+Station+Fukuoka"
+                 target="_blank">
+                室見站
+              </a>
+              與住宿。
+            </div>
+          </div>
+
+          <div class="route-note">
+            🚇 <strong>地鐵：</strong>
+            西新站搭機場線至室見站。
           </div>
 
         </div>
@@ -494,60 +652,142 @@
 
       <!-- Day 3 -->
       <div class="day-card">
-        <h2 class="day-title">Day 3｜10/27（二）百道＋天神購物</h2>
+        <h2 class="day-title">Day 3｜10/27（二）太宰府、福岡塔與百道</h2>
 
         <div class="timeline">
 
           <div class="timeline-item">
-            <div class="time">上午</div>
+            <div class="time">08:00</div>
             <div>
-              <a class="place-link" href="https://www.google.com/maps/search/?api=1&query=Fukuoka+Tower" target="_blank">
-                福岡塔
+              從住宿出發，前往天神，再轉西鐵前往
+              <a class="place-link"
+                 href="https://www.google.com/maps/search/?api=1&query=Dazaifu+Station"
+                 target="_blank">
+                太宰府
               </a>
-              →
-              <a class="place-link" href="https://www.google.com/maps/search/?api=1&query=Momochi+Seaside+Park" target="_blank">
-                百道海濱公園
-              </a>
+              。
             </div>
           </div>
 
-          <div class="timeline-item">
-            <div class="time">中午</div>
-            <div>
-              <a class="place-link" href="https://www.google.com/maps/search/?api=1&query=MARK+IS+Fukuoka+Momochi" target="_blank">
-                MARK IS 福岡 Momochi
-              </a>
-              午餐與逛街。
-            </div>
+          <div class="route-note">
+            🚇 <strong>地鐵＋西鐵：</strong>
+            室見站搭機場線至天神，
+            步行至西鐵福岡（天神）站，
+            再搭西鐵至太宰府。
+            從天神至太宰府約 30 分鐘，另需加上室見到天神與轉乘時間。
           </div>
 
           <div class="timeline-item">
-            <div class="time">下午</div>
+            <div class="time">09:00</div>
+            <div>
+              抵達
+              <a class="place-link"
+                 href="https://www.google.com/maps/search/?api=1&query=Dazaifu+Tenmangu"
+                 target="_blank">
+                太宰府天滿宮
+              </a>
+              ，參拜與參道散步。
+            </div>
+          </div>
+
+          <div class="route-note">
+            🚶 <strong>交通：</strong>
+            太宰府站出站後步行前往太宰府天滿宮。
+          </div>
+
+          <div class="timeline-item">
+            <div class="time">11:30</div>
+            <div>
+              在太宰府參道吃午餐、梅枝餅與購買伴手禮。
+            </div>
+          </div>
+
+          <div class="route-note">
+            🚶 <strong>交通：</strong>
+            太宰府天滿宮與參道周邊以步行為主。
+          </div>
+
+          <div class="timeline-item">
+            <div class="time">12:30</div>
+            <div>
+              從太宰府返回天神，再前往百道地區。
+            </div>
+          </div>
+
+          <div class="route-note">
+            🚇 <strong>西鐵＋地鐵／公車：</strong>
+            太宰府搭西鐵返回西鐵福岡（天神）站，
+            再由天神前往福岡塔。
+            這段建議預留至少 1 小時。
+          </div>
+
+          <div class="timeline-item">
+            <div class="time">14:00</div>
             <div>
               前往
-              <a class="place-link" href="https://www.google.com/maps/search/?api=1&query=Fukuoka+PARCO" target="_blank">
-                福岡 PARCO
+              <a class="place-link"
+                 href="https://www.google.com/maps/search/?api=1&query=Fukuoka+Tower"
+                 target="_blank">
+                福岡塔
               </a>
-              →
-              <a class="place-link" href="https://www.google.com/maps/search/?api=1&query=Loft+Fukuoka+Tenjin" target="_blank">
-                Loft 福岡天神
-              </a>
-              →
-              <a class="place-link" href="https://www.google.com/maps/search/?api=1&query=Bic+Camera+Tenjin+Fukuoka" target="_blank">
-                Bic Camera 天神
-              </a>
+              參觀展望台。
             </div>
           </div>
 
+          <div class="route-note">
+            🚌 <strong>交通：</strong>
+            從天神搭公車前往福岡塔，
+            或搭地下鐵至西新站後再轉公車／步行。
+          </div>
+
           <div class="timeline-item">
-            <div class="time">傍晚</div>
+            <div class="time">15:00</div>
             <div>
-              到
-              <a class="place-link" href="https://www.google.com/maps/search/?api=1&query=Mega+Don+Quijote+Fukuoka+Tenjin" target="_blank">
-                Mega Donki 天神本店
+              步行前往
+              <a class="place-link"
+                 href="https://www.google.com/maps/search/?api=1&query=Momochi+Seaside+Park"
+                 target="_blank">
+                百道海濱公園
               </a>
-              買藥妝、零食與伴手禮。
+              散步與拍照。
             </div>
+          </div>
+
+          <div class="route-note">
+            🚶 <strong>交通：</strong>
+            福岡塔與百道海濱公園距離近，建議步行。
+          </div>
+
+          <div class="timeline-item">
+            <div class="time">16:00</div>
+            <div>
+              前往
+              <a class="place-link"
+                 href="https://www.google.com/maps/search/?api=1&query=MARK+IS+Fukuoka+Momochi"
+                 target="_blank">
+                MARK IS 福岡 Momochi
+              </a>
+              逛街或用餐。
+            </div>
+          </div>
+
+          <div class="route-note">
+            🚶 <strong>交通：</strong>
+            從百道海濱公園步行前往 MARK IS。
+          </div>
+
+          <div class="timeline-item">
+            <div class="time">17:30 後</div>
+            <div>
+              行程結束後返回室見住宿。
+            </div>
+          </div>
+
+          <div class="route-note">
+            🚇 <strong>地鐵：</strong>
+            從西新站搭福岡市地下鐵機場線至室見站。
+            若人在 MARK IS，先搭公車或步行至西新站附近，
+            再搭地鐵回程。
           </div>
 
         </div>
@@ -563,60 +803,116 @@
             <div class="time">上午</div>
             <div>
               Check Out，帶行李前往
-              <a class="place-link" href="https://www.google.com/maps/search/?api=1&query=Muromi+Station+Fukuoka" target="_blank">
+              <a class="place-link"
+                 href="https://www.google.com/maps/search/?api=1&query=Muromi+Station+Fukuoka"
+                 target="_blank">
                 室見站
               </a>
               ，搭地下鐵到天神。
             </div>
           </div>
 
+          <div class="route-note">
+            🚇 <strong>地鐵：</strong>
+            室見站搭福岡市地下鐵機場線直達天神站。
+          </div>
+
           <div class="timeline-item">
             <div class="time">10:15</div>
             <div>
               到事先預約的
-              <a class="place-link" href="https://radicalstorage.com/?acc=c8758b517083196f05ac29810b924aca" target="_blank">
+              <a class="place-link"
+                 href="https://radicalstorage.com/?acc=c8758b517083196f05ac29810b924aca"
+                 target="_blank">
                 Radical Storage
               </a>
               寄放行李。
             </div>
           </div>
 
+          <div class="route-note">
+            🚶 <strong>交通：</strong>
+            從天神站步行前往行李寄放地點。
+          </div>
+
           <div class="timeline-item">
-            <div class="time">10:30–14:30</div>
+            <div class="time">10:30–14:00</div>
             <div>
               逛
-              <a class="place-link" href="https://www.google.com/maps/search/?api=1&query=Tenjin+Chikagai" target="_blank">
+              <a class="place-link"
+                 href="https://www.google.com/maps/search/?api=1&query=Tenjin+Chikagai"
+                 target="_blank">
                 天神地下街
               </a>
               、
-              <a class="place-link" href="https://www.google.com/maps/search/?api=1&query=Fukuoka+PARCO" target="_blank">
+              <a class="place-link"
+                 href="https://www.google.com/maps/search/?api=1&query=Fukuoka+PARCO"
+                 target="_blank">
                 福岡 PARCO
               </a>
               、
-              <a class="place-link" href="https://www.google.com/maps/search/?api=1&query=Loft+Fukuoka+Tenjin" target="_blank">
+              <a class="place-link"
+                 href="https://www.google.com/maps/search/?api=1&query=Loft+Fukuoka+Tenjin"
+                 target="_blank">
                 Loft
               </a>
               、
-              <a class="place-link" href="https://www.google.com/maps/search/?api=1&query=Bic+Camera+Tenjin+Fukuoka" target="_blank">
+              <a class="place-link"
+                 href="https://www.google.com/maps/search/?api=1&query=Bic+Camera+Tenjin+Fukuoka"
+                 target="_blank">
                 Bic Camera
               </a>
               、
-              <a class="place-link" href="https://www.google.com/maps/search/?api=1&query=ABC+MART+Fukuoka+Tenjin" target="_blank">
+              <a class="place-link"
+                 href="https://www.google.com/maps/search/?api=1&query=ABC+MART+Fukuoka+Tenjin"
+                 target="_blank">
                 ABC-MART
               </a>
               。
             </div>
           </div>
 
+          <div class="route-note">
+            🚶 <strong>交通：</strong>
+            天神地下街、PARCO、Loft、Bic Camera 與 ABC-MART
+            以步行串聯最方便。
+          </div>
+
+          <div class="timeline-item">
+            <div class="time">14:00–15:00</div>
+            <div>
+              最後採買藥妝、鞋子、服飾與伴手禮。
+              可前往
+              <a class="place-link"
+                 href="https://www.google.com/maps/search/?api=1&query=Mega+Don+Quijote+Fukuoka+Tenjin"
+                 target="_blank">
+                Mega Donki 天神本店
+              </a>
+              。
+            </div>
+          </div>
+
+          <div class="route-note">
+            🚶 <strong>交通：</strong>
+            Donki 天神本店可從天神購物區步行前往。
+          </div>
+
           <div class="timeline-item">
             <div class="time">15:00–15:30</div>
             <div>
               回
-              <a class="place-link" href="https://radicalstorage.com/?acc=c8758b517083196f05ac29810b924aca" target="_blank">
+              <a class="place-link"
+                 href="https://radicalstorage.com/?acc=c8758b517083196f05ac29810b924aca"
+                 target="_blank">
                 Radical Storage
               </a>
               取行李。
             </div>
+          </div>
+
+          <div class="route-note">
+            🚶 <strong>交通：</strong>
+            從最後購物地點步行返回行李寄放處。
           </div>
 
           <div class="timeline-item">
@@ -624,17 +920,25 @@
             <div>
               從天神搭地下鐵到福岡空港站，
               再轉免費接駁巴士到
-              <a class="place-link" href="https://www.google.com/maps/search/?api=1&query=Fukuoka+Airport+International+Terminal" target="_blank">
+              <a class="place-link"
+                 href="https://www.google.com/maps/search/?api=1&query=Fukuoka+Airport+International+Terminal"
+                 target="_blank">
                 福岡機場國際線航廈
               </a>
               。
             </div>
           </div>
 
+          <div class="route-note">
+            🚇 <strong>地鐵＋免費接駁巴士：</strong>
+            天神站搭機場線至福岡空港站，
+            再搭免費航廈接駁巴士前往國際線。
+          </div>
+
           <div class="timeline-item">
             <div class="time">16:45 前</div>
             <div>
-              建議抵達福岡機場國際線，至少保留起飛前 2 小時。
+              抵達福岡機場國際線，至少保留起飛前 2 小時。
             </div>
           </div>
 
@@ -658,7 +962,7 @@
 
     </section>
 
-    <!-- 店家 -->
+    <!-- ==================== 店家 ==================== -->
     <section id="stores" class="tab-content">
 
       <div class="intro">
@@ -666,12 +970,32 @@
       </div>
 
       <div class="chips">
-        <button class="chip" onclick="scrollToStore('muromi')">🛒 室見／西新</button>
-        <button class="chip" onclick="scrollToStore('momochi')">🌊 百道</button>
-        <button class="chip" onclick="scrollToStore('tenjin')">🛍 天神</button>
-        <button class="chip" onclick="scrollToStore('hakata')">🍜 博多／中洲</button>
+        <button class="chip" onclick="scrollToStore('muromi')">
+          🛒 室見／西新
+        </button>
+
+        <button class="chip" onclick="scrollToStore('shrines')">
+          ⛩️ 神社
+        </button>
+
+        <button class="chip" onclick="scrollToStore('dazaifu')">
+          ⛩️ 太宰府
+        </button>
+
+        <button class="chip" onclick="scrollToStore('momochi')">
+          🌊 百道
+        </button>
+
+        <button class="chip" onclick="scrollToStore('tenjin')">
+          🛍 天神
+        </button>
+
+        <button class="chip" onclick="scrollToStore('hakata')">
+          🍜 博多／中洲
+        </button>
       </div>
 
+      <!-- 室見／西新 -->
       <div id="muromi">
         <h2>室見／西新</h2>
 
@@ -680,7 +1004,8 @@
           <div class="store-card">
             <div class="store-icon">🛒</div>
             <h3>
-              <a href="https://www.google.com/maps/search/?api=1&query=MaxValu+Express+Muromi" target="_blank">
+              <a href="https://www.google.com/maps/search/?api=1&query=MaxValu+Express+Muromi"
+                 target="_blank">
                 MaxValu Express 室見店
               </a>
             </h3>
@@ -690,7 +1015,8 @@
           <div class="store-card">
             <div class="store-icon">💊</div>
             <h3>
-              <a href="https://www.google.com/maps/search/?api=1&query=Drug+Seims+Sawara+Minamisho" target="_blank">
+              <a href="https://www.google.com/maps/search/?api=1&query=Drug+Seims+Sawara+Minamisho"
+                 target="_blank">
                 Drug Seims 早良南庄店
               </a>
             </h3>
@@ -700,7 +1026,8 @@
           <div class="store-card">
             <div class="store-icon">🍢</div>
             <h3>
-              <a href="https://www.google.com/maps/search/?api=1&query=Torikizoku+Nishijin+Fukuoka" target="_blank">
+              <a href="https://www.google.com/maps/search/?api=1&query=Torikizoku+Nishijin+Fukuoka"
+                 target="_blank">
                 鳥貴族西新店
               </a>
             </h3>
@@ -710,25 +1037,101 @@
         </div>
       </div>
 
+      <!-- 神社 -->
+      <div id="shrines">
+        <h2>福岡熱門神社</h2>
+
+        <div class="store-grid">
+
+          <div class="store-card">
+            <div class="store-icon">⛩️</div>
+            <h3>
+              <a href="https://www.google.com/maps/search/?api=1&query=Fukuoka+Gokoku+Shrine"
+                 target="_blank">
+                福岡縣護國神社
+              </a>
+            </h3>
+            <p>位於大濠公園與福岡城跡旁，Day 2 可順路參拜。</p>
+          </div>
+
+          <div class="store-card">
+            <div class="store-icon">⛩️</div>
+            <h3>
+              <a href="https://www.google.com/maps/search/?api=1&query=Sumiyoshi+Shrine+Fukuoka"
+                 target="_blank">
+                住吉神社
+              </a>
+            </h3>
+            <p>位於博多區，適合排在天神、博多與櫛田神社之間。</p>
+          </div>
+
+          <div class="store-card">
+            <div class="store-icon">⛩️</div>
+            <h3>
+              <a href="https://www.google.com/maps/search/?api=1&query=Kushida+Shrine+Fukuoka"
+                 target="_blank">
+                櫛田神社
+              </a>
+            </h3>
+            <p>博多代表性神社，鄰近 Canal City 與中洲。</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 太宰府 -->
+      <div id="dazaifu">
+        <h2>太宰府</h2>
+
+        <div class="store-grid">
+
+          <div class="store-card">
+            <div class="store-icon">⛩️</div>
+            <h3>
+              <a href="https://www.google.com/maps/search/?api=1&query=Dazaifu+Tenmangu"
+                 target="_blank">
+                太宰府天滿宮
+              </a>
+            </h3>
+            <p>太宰府主要參拜景點，從太宰府站步行約 5 分鐘。</p>
+          </div>
+
+          <div class="store-card">
+            <div class="store-icon">🍡</div>
+            <h3>
+              <a href="https://www.google.com/maps/search/?api=1&query=Dazaifu+Shopping+Street"
+                 target="_blank">
+                太宰府參道
+              </a>
+            </h3>
+            <p>梅枝餅、伴手禮與特色小店集中區域。</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 百道 -->
       <div id="momochi">
         <h2>百道／MARK IS</h2>
 
         <div class="store-grid">
 
           <div class="store-card">
-            <div class="store-icon">🛍️</div>
+            <div class="store-icon">🗼</div>
             <h3>
-              <a href="https://www.google.com/maps/search/?api=1&query=MARK+IS+Fukuoka+Momochi" target="_blank">
-                MARK IS 福岡 Momochi
+              <a href="https://www.google.com/maps/search/?api=1&query=Fukuoka+Tower"
+                 target="_blank">
+                福岡塔
               </a>
             </h3>
-            <p>午餐、服飾、生活雜貨與商場採買。</p>
+            <p>福岡海濱地標與展望台。</p>
           </div>
 
           <div class="store-card">
             <div class="store-icon">🌊</div>
             <h3>
-              <a href="https://www.google.com/maps/search/?api=1&query=Momochi+Seaside+Park" target="_blank">
+              <a href="https://www.google.com/maps/search/?api=1&query=Momochi+Seaside+Park"
+                 target="_blank">
                 百道海濱公園
               </a>
             </h3>
@@ -736,18 +1139,20 @@
           </div>
 
           <div class="store-card">
-            <div class="store-icon">🗼</div>
+            <div class="store-icon">🛍️</div>
             <h3>
-              <a href="https://www.google.com/maps/search/?api=1&query=Fukuoka+Tower" target="_blank">
-                福岡塔
+              <a href="https://www.google.com/maps/search/?api=1&query=MARK+IS+Fukuoka+Momochi"
+                 target="_blank">
+                MARK IS 福岡 Momochi
               </a>
             </h3>
-            <p>展望台與百道景色。</p>
+            <p>午餐、服飾、生活雜貨與商場採買。</p>
           </div>
 
         </div>
       </div>
 
+      <!-- 天神 -->
       <div id="tenjin">
         <h2>天神購物區</h2>
 
@@ -756,7 +1161,8 @@
           <div class="store-card">
             <div class="store-icon">🛍️</div>
             <h3>
-              <a href="https://www.google.com/maps/search/?api=1&query=Tenjin+Chikagai" target="_blank">
+              <a href="https://www.google.com/maps/search/?api=1&query=Tenjin+Chikagai"
+                 target="_blank">
                 天神地下街
               </a>
             </h3>
@@ -766,7 +1172,8 @@
           <div class="store-card">
             <div class="store-icon">🛍️</div>
             <h3>
-              <a href="https://www.google.com/maps/search/?api=1&query=Fukuoka+PARCO" target="_blank">
+              <a href="https://www.google.com/maps/search/?api=1&query=Fukuoka+PARCO"
+                 target="_blank">
                 福岡 PARCO
               </a>
             </h3>
@@ -776,7 +1183,8 @@
           <div class="store-card">
             <div class="store-icon">👟</div>
             <h3>
-              <a href="https://www.google.com/maps/search/?api=1&query=Murasaki+Sports+Fukuoka+PARCO" target="_blank">
+              <a href="https://www.google.com/maps/search/?api=1&query=Murasaki+Sports+Fukuoka+PARCO"
+                 target="_blank">
                 MURASAKI SPORTS 福岡 PARCO
               </a>
             </h3>
@@ -786,18 +1194,22 @@
           <div class="store-card">
             <div class="store-icon">🥾</div>
             <h3>
-              <a href="https://www.google.com/maps/search/?api=1&query=Salomon+Store+ONE+FUKUOKA+BLDG" target="_blank">
+              <a href="https://www.google.com/maps/search/?api=1&query=Salomon+Store+ONE+FUKUOKA+BLDG"
+                 target="_blank">
                 Salomon Store ONE FUKUOKA BLDG.
               </a>
             </h3>
             <p>Salomon 直營店，適合看登山鞋與越野鞋。</p>
-            <p class="small">平日 11:00–20:00；週末與假日 10:00–20:00。</p>
+            <p class="small">
+              平日 11:00–20:00；週末與假日 10:00–20:00。
+            </p>
           </div>
 
           <div class="store-card">
             <div class="store-icon">🏃</div>
             <h3>
-              <a href="https://www.google.com/maps/search/?api=1&query=BILLYS+ENT+FUKUOKA" target="_blank">
+              <a href="https://www.google.com/maps/search/?api=1&query=BILLYS+ENT+FUKUOKA"
+                 target="_blank">
                 BILLY’S ENT FUKUOKA
               </a>
             </h3>
@@ -807,7 +1219,8 @@
           <div class="store-card">
             <div class="store-icon">👟</div>
             <h3>
-              <a href="https://www.google.com/maps/search/?api=1&query=ABC+MART+Fukuoka+Tenjin" target="_blank">
+              <a href="https://www.google.com/maps/search/?api=1&query=ABC+MART+Fukuoka+Tenjin"
+                 target="_blank">
                 ABC-MART 天神
               </a>
             </h3>
@@ -817,7 +1230,8 @@
           <div class="store-card">
             <div class="store-icon">📝</div>
             <h3>
-              <a href="https://www.google.com/maps/search/?api=1&query=Loft+Fukuoka+Tenjin" target="_blank">
+              <a href="https://www.google.com/maps/search/?api=1&query=Loft+Fukuoka+Tenjin"
+                 target="_blank">
                 Loft 福岡天神
               </a>
             </h3>
@@ -827,7 +1241,8 @@
           <div class="store-card">
             <div class="store-icon">⚡</div>
             <h3>
-              <a href="https://www.google.com/maps/search/?api=1&query=Bic+Camera+Tenjin+Fukuoka" target="_blank">
+              <a href="https://www.google.com/maps/search/?api=1&query=Bic+Camera+Tenjin+Fukuoka"
+                 target="_blank">
                 Bic Camera 天神
               </a>
             </h3>
@@ -837,7 +1252,8 @@
           <div class="store-card">
             <div class="store-icon">🛒</div>
             <h3>
-              <a href="https://www.google.com/maps/search/?api=1&query=Mega+Don+Quijote+Fukuoka+Tenjin" target="_blank">
+              <a href="https://www.google.com/maps/search/?api=1&query=Mega+Don+Quijote+Fukuoka+Tenjin"
+                 target="_blank">
                 Mega Donki 天神本店
               </a>
             </h3>
@@ -847,7 +1263,8 @@
           <div class="store-card">
             <div class="store-icon">👕</div>
             <h3>
-              <a href="https://www.google.com/maps/search/?api=1&query=UNIQLO+Tenjin+Fukuoka" target="_blank">
+              <a href="https://www.google.com/maps/search/?api=1&query=UNIQLO+Tenjin+Fukuoka"
+                 target="_blank">
                 UNIQLO 天神
               </a>
             </h3>
@@ -857,7 +1274,8 @@
           <div class="store-card">
             <div class="store-icon">👕</div>
             <h3>
-              <a href="https://www.google.com/maps/search/?api=1&query=GU+Tenjin+Fukuoka" target="_blank">
+              <a href="https://www.google.com/maps/search/?api=1&query=GU+Tenjin+Fukuoka"
+                 target="_blank">
                 GU 天神
               </a>
             </h3>
@@ -867,6 +1285,7 @@
         </div>
       </div>
 
+      <!-- 博多／中洲 -->
       <div id="hakata">
         <h2>博多／中洲</h2>
 
@@ -875,7 +1294,8 @@
           <div class="store-card">
             <div class="store-icon">🏬</div>
             <h3>
-              <a href="https://www.google.com/maps/search/?api=1&query=Canal+City+Hakata" target="_blank">
+              <a href="https://www.google.com/maps/search/?api=1&query=Canal+City+Hakata"
+                 target="_blank">
                 Canal City 博多
               </a>
             </h3>
@@ -885,7 +1305,8 @@
           <div class="store-card">
             <div class="store-icon">🍜</div>
             <h3>
-              <a href="https://www.google.com/maps/search/?api=1&query=Nakasu+Fukuoka" target="_blank">
+              <a href="https://www.google.com/maps/search/?api=1&query=Nakasu+Fukuoka"
+                 target="_blank">
                 中洲
               </a>
             </h3>
@@ -895,7 +1316,8 @@
           <div class="store-card">
             <div class="store-icon">🚉</div>
             <h3>
-              <a href="https://www.google.com/maps/search/?api=1&query=Hakata+Station+Fukuoka" target="_blank">
+              <a href="https://www.google.com/maps/search/?api=1&query=Hakata+Station+Fukuoka"
+                 target="_blank">
                 博多車站
               </a>
             </h3>
@@ -907,11 +1329,11 @@
 
     </section>
 
-    <!-- 優惠券 -->
+    <!-- ==================== 優惠券 ==================== -->
     <section id="coupons" class="tab-content">
 
       <div class="intro">
-        點擊優惠券按鈕後會開啟官方優惠券網頁。
+        點擊優惠券按鈕後會開啟外部優惠券網頁。
         請在付款前出示優惠券，並攜帶護照確認免稅資格。
       </div>
 
@@ -926,14 +1348,23 @@
           <div class="store-icon">⚡</div>
           <h3>Bic Camera</h3>
           <span class="status">🟢 有效至 2026/10/31</span>
-          <p>免稅加最高 7% 額外折扣，適合家電、相機、3C、化妝品與藥妝。</p>
-          <p class="small">通常需未稅滿 5,000 日圓，並在付款前出示券面與護照。</p>
+          <p>
+            免稅加最高 7% 額外折扣，適合家電、相機、3C、化妝品與藥妝。
+          </p>
+          <p class="small">
+            通常需未稅滿 5,000 日圓，並於付款前出示券面與護照。
+          </p>
 
           <div class="button-row">
-            <a class="button green" href="https://livejapan.com/public/operation/coupon/biccamera/en.html" target="_blank">
+            <a class="button green"
+               href="https://livejapan.com/public/operation/coupon/biccamera/en.html"
+               target="_blank">
               開啟優惠券
             </a>
-            <a class="button" href="https://www.google.com/maps/search/?api=1&query=Bic+Camera+Tenjin+Fukuoka" target="_blank">
+
+            <a class="button"
+               href="https://www.google.com/maps/search/?api=1&query=Bic+Camera+Tenjin+Fukuoka"
+               target="_blank">
               Google 地圖
             </a>
           </div>
@@ -943,14 +1374,23 @@
           <div class="store-icon">🛒</div>
           <h3>Don Quijote／MEGA Donki</h3>
           <span class="status">🟢 旅客優惠券</span>
-          <p>依消費金額可能有額外 5% 或 7% 折扣，並可搭配免稅流程。</p>
-          <p class="small">付款前出示券面；酒類、香菸、票卡與部分商品可能排除。</p>
+          <p>
+            依消費金額可能有額外 5% 或 7% 折扣，並可搭配免稅流程。
+          </p>
+          <p class="small">
+            付款前出示券面；酒類、香菸、票卡與部分商品可能排除。
+          </p>
 
           <div class="button-row">
-            <a class="button green" href="https://japanportal.donki-global.com/coupon/?ptcd=0124000101" target="_blank">
+            <a class="button green"
+               href="https://japanportal.donki-global.com/coupon/?ptcd=0124000101"
+               target="_blank">
               開啟優惠券
             </a>
-            <a class="button" href="https://www.google.com/maps/search/?api=1&query=Mega+Don+Quijote+Fukuoka+Tenjin" target="_blank">
+
+            <a class="button"
+               href="https://www.google.com/maps/search/?api=1&query=Mega+Don+Quijote+Fukuoka+Tenjin"
+               target="_blank">
               Google 地圖
             </a>
           </div>
@@ -960,14 +1400,23 @@
           <div class="store-icon">💊</div>
           <h3>Matsumoto Kiyoshi</h3>
           <span class="status">🟢 優惠資料至 2027/3/31</span>
-          <p>藥品、保健品、化妝品與日用品優惠入口。</p>
-          <p class="small">部分優惠僅限特定免稅店或符合條件的消費。</p>
+          <p>
+            藥品、保健品、化妝品與日用品優惠入口。
+          </p>
+          <p class="small">
+            部分優惠僅限特定免稅店或符合條件的消費。
+          </p>
 
           <div class="button-row">
-            <a class="button green" href="https://japancouponguide.com/en/coupons/" target="_blank">
+            <a class="button green"
+               href="https://japancouponguide.com/en/coupons/"
+               target="_blank">
               開啟優惠券
             </a>
-            <a class="button" href="https://www.google.com/maps/search/?api=1&query=Matsumoto+Kiyoshi+Tenjin+Fukuoka" target="_blank">
+
+            <a class="button"
+               href="https://www.google.com/maps/search/?api=1&query=Matsumoto+Kiyoshi+Tenjin+Fukuoka"
+               target="_blank">
               Google 地圖
             </a>
           </div>
@@ -977,14 +1426,23 @@
           <div class="store-icon">💊</div>
           <h3>Cocokara Fine</h3>
           <span class="status">🟢 官方優惠入口</span>
-          <p>藥品、保健品、美妝與生活用品優惠。</p>
-          <p class="small">部分免稅店不適用，請先確認分店。</p>
+          <p>
+            藥品、保健品、美妝與生活用品優惠。
+          </p>
+          <p class="small">
+            部分免稅店不適用，請先確認分店。
+          </p>
 
           <div class="button-row">
-            <a class="button green" href="https://en.matsumotokiyoshi.net/coupon" target="_blank">
+            <a class="button green"
+               href="https://en.matsumotokiyoshi.net/coupon"
+               target="_blank">
               開啟優惠券
             </a>
-            <a class="button" href="https://www.google.com/maps/search/?api=1&query=Cocokara+Fine+Tenjin+Fukuoka" target="_blank">
+
+            <a class="button"
+               href="https://www.google.com/maps/search/?api=1&query=Cocokara+Fine+Tenjin+Fukuoka"
+               target="_blank">
               Google 地圖
             </a>
           </div>
