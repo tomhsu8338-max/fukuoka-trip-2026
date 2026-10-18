@@ -50,8 +50,7 @@
       text-align: center;
       padding: 38px 16px 32px;
       background:
-        linear-gradient(135deg, rgba(18,59,89,0.96), rgba(36,123,145,0.9)),
-        linear-gradient(45deg, #123b59, #247b91);
+        linear-gradient(135deg, rgba(18,59,89,0.96), rgba(36,123,145,0.9));
     }
 
     header::after {
@@ -167,10 +166,6 @@
       margin: 0 0 12px;
     }
 
-    .day-title span {
-      color: var(--sunset);
-    }
-
     .timeline {
       display: grid;
       gap: 9px;
@@ -235,19 +230,6 @@
 
     .store-card h3 a:hover {
       color: var(--sunset);
-    }
-
-    .payment-box {
-      margin-top: 13px;
-      padding: 11px 12px;
-      background: #f7fafb;
-      border-radius: 11px;
-      border-left: 4px solid var(--gold);
-      font-size: 0.9rem;
-    }
-
-    .payment-box strong {
-      color: var(--hakata-blue);
     }
 
     .button-row {
@@ -318,61 +300,6 @@
       cursor: pointer;
     }
 
-    /* 優惠券彈窗 */
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 100;
-      background: rgba(12, 35, 48, 0.72);
-      padding: 22px;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .modal.show {
-      display: flex;
-    }
-
-    .modal-box {
-      position: relative;
-      width: min(94vw, 480px);
-      max-height: 90vh;
-      overflow-y: auto;
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      text-align: center;
-      box-shadow: 0 10px 38px rgba(0,0,0,0.25);
-    }
-
-    .close-modal {
-      position: absolute;
-      top: 10px;
-      right: 14px;
-      border: 0;
-      background: transparent;
-      font-size: 1.7rem;
-      cursor: pointer;
-      color: var(--muted);
-    }
-
-    .coupon-placeholder {
-      padding: 28px 15px;
-      margin: 16px 0;
-      border: 2px dashed #c4d1d6;
-      border-radius: 14px;
-      background: #f8fafb;
-      color: var(--muted);
-    }
-
-    .qr-image {
-      max-width: 100%;
-      max-height: 420px;
-      border-radius: 12px;
-      margin: 15px 0;
-    }
-
     footer {
       text-align: center;
       color: var(--muted);
@@ -419,18 +346,18 @@
 
   <main>
 
-    <!-- ==================== 行程 ==================== -->
+    <!-- 行程 -->
     <section id="schedule" class="tab-content active">
 
       <div class="intro">
         行程中的藍色底線地點都可以直接點擊，會開啟 Google Maps。
-        點擊後可以查看位置、交通路線或開始導航。
       </div>
 
       <div class="notice flight">
         <strong>✈️ 機場提醒</strong><br>
-        國際線建議至少在起飛前 2 小時抵達機場。回程航班 18:45 起飛，
-        建議 16:45 前抵達福岡機場國際線航廈。
+        國際線建議至少在起飛前 2 小時抵達機場。
+        去程 15:30 起飛，建議 13:30 前抵達高雄機場；
+        回程 18:45 起飛，建議 16:45 前抵達福岡機場國際線航廈。
       </div>
 
       <!-- Day 1 -->
@@ -442,9 +369,8 @@
           <div class="timeline-item">
             <div class="time">13:30 前</div>
             <div>
-              建議抵達
-              <strong>高雄國際機場 KHH 第一航廈</strong>，
-              以便完成報到、託運、安檢與出境。
+              建議抵達高雄國際機場 KHH 第一航廈，
+              辦理報到、託運、安檢與出境。
             </div>
           </div>
 
@@ -696,7 +622,8 @@
           <div class="timeline-item">
             <div class="time">15:45</div>
             <div>
-              從天神搭地下鐵到福岡空港站，再轉免費接駁巴士到
+              從天神搭地下鐵到福岡空港站，
+              再轉免費接駁巴士到
               <a class="place-link" href="https://www.google.com/maps/search/?api=1&query=Fukuoka+Airport+International+Terminal" target="_blank">
                 福岡機場國際線航廈
               </a>
@@ -707,7 +634,7 @@
           <div class="timeline-item">
             <div class="time">16:45 前</div>
             <div>
-              建議抵達福岡機場國際線，至少保留起飛前 2 小時辦理報到、託運、安檢與出境。
+              建議抵達福岡機場國際線，至少保留起飛前 2 小時。
             </div>
           </div>
 
@@ -731,11 +658,11 @@
 
     </section>
 
-    <!-- ==================== 店家 ==================== -->
+    <!-- 店家 -->
     <section id="stores" class="tab-content">
 
       <div class="intro">
-        店家依照你目前的行程排列。每個店家都有 Google Maps 連結與支付建議。
+        店家依照你的行程整理。點擊店家名稱即可開啟 Google Maps。
       </div>
 
       <div class="chips">
@@ -745,7 +672,6 @@
         <button class="chip" onclick="scrollToStore('hakata')">🍜 博多／中洲</button>
       </div>
 
-      <!-- 室見 -->
       <div id="muromi">
         <h2>室見／西新</h2>
 
@@ -759,10 +685,6 @@
               </a>
             </h3>
             <p>便當、壽司、熟食、飲料、零食與早餐。</p>
-            <div class="payment-box">
-              <strong>支付建議：</strong>
-              小額採買可用現金或交通 IC 卡；若支援你的信用卡，優先使用海外回饋較高的卡。
-            </div>
           </div>
 
           <div class="store-card">
@@ -772,11 +694,7 @@
                 Drug Seims 早良南庄店
               </a>
             </h3>
-            <p>住宿附近的藥妝、飲料、零食與日用品。</p>
-            <div class="payment-box">
-              <strong>支付建議：</strong>
-              少量購物直接刷海外回饋卡；若有店舖券，先出示優惠再付款。
-            </div>
+            <p>藥妝、零食、飲料、日用品與旅行常備藥。</p>
           </div>
 
           <div class="store-card">
@@ -787,16 +705,11 @@
               </a>
             </h3>
             <p>Day 2 晚餐安排。</p>
-            <div class="payment-box">
-              <strong>支付建議：</strong>
-              先確認是否接受你的信用卡或電子支付；多人用餐可集中刷卡，避免分開付款。
-            </div>
           </div>
 
         </div>
       </div>
 
-      <!-- 百道 -->
       <div id="momochi">
         <h2>百道／MARK IS</h2>
 
@@ -810,10 +723,6 @@
               </a>
             </h3>
             <p>午餐、服飾、生活雜貨與商場採買。</p>
-            <div class="payment-box">
-              <strong>支付建議：</strong>
-              先看店舖活動；一般購物使用海外回饋高的信用卡即可。
-            </div>
           </div>
 
           <div class="store-card">
@@ -823,7 +732,7 @@
                 百道海濱公園
               </a>
             </h3>
-            <p>散步與拍照，不需購物。</p>
+            <p>看海、散步與拍照。</p>
           </div>
 
           <div class="store-card">
@@ -839,7 +748,6 @@
         </div>
       </div>
 
-      <!-- 天神 -->
       <div id="tenjin">
         <h2>天神購物區</h2>
 
@@ -853,10 +761,6 @@
               </a>
             </h3>
             <p>服飾、藥妝、雜貨與餐廳。</p>
-            <div class="payment-box">
-              <strong>支付建議：</strong>
-              各店付款方式不同；有海外回饋卡就優先刷卡，少量小店準備日圓現金。
-            </div>
           </div>
 
           <div class="store-card">
@@ -867,10 +771,6 @@
               </a>
             </h3>
             <p>服飾、動漫商品、生活雜貨與餐廳。</p>
-            <div class="payment-box">
-              <strong>支付建議：</strong>
-              先開 POCKET PARCO 看優惠；若沒有指定支付回饋，使用海外回饋高的信用卡。
-            </div>
           </div>
 
           <div class="store-card">
@@ -880,11 +780,7 @@
                 MURASAKI SPORTS 福岡 PARCO
               </a>
             </h3>
-            <p>位於 PARCO 本館 6F，可看 On、Salomon、運動鞋與戶外用品。</p>
-            <div class="payment-box">
-              <strong>支付建議：</strong>
-              先問店員是否有品牌活動或免稅；沒有專用折扣時，刷海外回饋高的信用卡。
-            </div>
+            <p>On、Salomon、運動鞋與戶外用品。</p>
           </div>
 
           <div class="store-card">
@@ -894,12 +790,8 @@
                 Salomon Store ONE FUKUOKA BLDG.
               </a>
             </h3>
-            <p>Salomon 直營店，適合看登山鞋、越野鞋與戶外用品。</p>
+            <p>Salomon 直營店，適合看登山鞋與越野鞋。</p>
             <p class="small">平日 11:00–20:00；週末與假日 10:00–20:00。</p>
-            <div class="payment-box">
-              <strong>支付建議：</strong>
-              先確認是否可免稅；若無品牌折扣，使用海外回饋高的信用卡。
-            </div>
           </div>
 
           <div class="store-card">
@@ -910,10 +802,6 @@
               </a>
             </h3>
             <p>潮流鞋款、運動鞋與 On 等品牌。</p>
-            <div class="payment-box">
-              <strong>支付建議：</strong>
-              先比較品牌定價與尺寸庫存；有免稅資格時，帶護照辦理免稅。
-            </div>
           </div>
 
           <div class="store-card">
@@ -924,10 +812,6 @@
               </a>
             </h3>
             <p>運動鞋、休閒鞋、Converse、Vans、Nike、adidas 等。</p>
-            <div class="payment-box">
-              <strong>支付建議：</strong>
-              先看店內 Sale，再比較是否可免稅；沒有通用旅客 QR 券時，刷海外回饋卡。
-            </div>
           </div>
 
           <div class="store-card">
@@ -938,10 +822,6 @@
               </a>
             </h3>
             <p>文具、生活雜貨、美妝與旅行用品。</p>
-            <div class="payment-box">
-              <strong>支付建議：</strong>
-              先確認是否有 App 或店內活動；一般使用海外回饋信用卡即可。
-            </div>
           </div>
 
           <div class="store-card">
@@ -952,10 +832,6 @@
               </a>
             </h3>
             <p>家電、相機、3C、電玩、藥妝與旅行用品。</p>
-            <div class="payment-box">
-              <strong>支付建議：</strong>
-              先出示旅客優惠券，再辦免稅；最後使用海外回饋較高的信用卡。
-            </div>
           </div>
 
           <div class="store-card">
@@ -966,10 +842,6 @@
               </a>
             </h3>
             <p>藥妝、零食、伴手禮與日用品。</p>
-            <div class="payment-box">
-              <strong>支付建議：</strong>
-              先出示 Donki 旅客優惠券，再出示護照辦免稅，最後刷海外回饋高的信用卡。
-            </div>
           </div>
 
           <div class="store-card">
@@ -980,10 +852,6 @@
               </a>
             </h3>
             <p>服飾、內搭、旅行衣物與基本款。</p>
-            <div class="payment-box">
-              <strong>支付建議：</strong>
-              先確認期間限定價；符合條件就辦免稅，沒有通用 QR 折價券時刷海外回饋卡。
-            </div>
           </div>
 
           <div class="store-card">
@@ -994,16 +862,11 @@
               </a>
             </h3>
             <p>平價服飾、休閒服與旅行衣物。</p>
-            <div class="payment-box">
-              <strong>支付建議：</strong>
-              先確認 Sale 與免稅條件；目前沒有確認涵蓋旅程日期的通用旅客 QR 券。
-            </div>
           </div>
 
         </div>
       </div>
 
-      <!-- 博多 -->
       <div id="hakata">
         <h2>博多／中洲</h2>
 
@@ -1017,10 +880,6 @@
               </a>
             </h3>
             <p>商場、餐廳、伴手禮與室內逛街。</p>
-            <div class="payment-box">
-              <strong>支付建議：</strong>
-              各店付款方式不同；大額購物優先使用海外回饋信用卡。
-            </div>
           </div>
 
           <div class="store-card">
@@ -1031,10 +890,6 @@
               </a>
             </h3>
             <p>晚間散步、屋台與市區夜景。</p>
-            <div class="payment-box">
-              <strong>支付建議：</strong>
-              屋台與小店可能只收現金，建議準備日圓。
-            </div>
           </div>
 
           <div class="store-card">
@@ -1045,10 +900,6 @@
               </a>
             </h3>
             <p>伴手禮、車站商場與餐廳。</p>
-            <div class="payment-box">
-              <strong>支付建議：</strong>
-              百貨或大型商場可刷卡；小店與車站小吃準備現金。
-            </div>
           </div>
 
         </div>
@@ -1056,17 +907,17 @@
 
     </section>
 
-    <!-- ==================== 優惠券 ==================== -->
+    <!-- 優惠券 -->
     <section id="coupons" class="tab-content">
 
       <div class="intro">
-        優惠券獨立放在這個分頁。點擊「查看券面」會在網站內開啟彈窗，
-        不會直接跳離本網站。
+        點擊優惠券按鈕後會開啟官方優惠券網頁。
+        請在付款前出示優惠券，並攜帶護照確認免稅資格。
       </div>
 
       <div class="notice warning">
-        優惠券必須在付款前出示。部分折扣需要護照、免稅資格或指定支付方式。
-        沒有確認有效 QR code 的店家，會標示為「需出發前確認」。
+        優惠券可能依日期、分店、商品種類與消費金額而變動。
+        實際能否使用，請以付款當天官方券面與店員說明為準。
       </div>
 
       <div class="coupon-grid">
@@ -1074,14 +925,14 @@
         <div class="coupon-card">
           <div class="store-icon">⚡</div>
           <h3>Bic Camera</h3>
-          <span class="status">🟢 目前資料顯示至 2026/10/31</span>
-          <p>免稅與指定商品折扣，適合家電、相機、3C、藥妝。</p>
-          <p class="small">付款前出示優惠券與護照，部分商品可能排除。</p>
+          <span class="status">🟢 有效至 2026/10/31</span>
+          <p>免稅加最高 7% 額外折扣，適合家電、相機、3C、化妝品與藥妝。</p>
+          <p class="small">通常需未稅滿 5,000 日圓，並在付款前出示券面與護照。</p>
 
           <div class="button-row">
-            <button class="button green" onclick="openCoupon('Bic Camera', 'bic-camera')">
-              查看券面說明
-            </button>
+            <a class="button green" href="https://livejapan.com/public/operation/coupon/biccamera/en.html" target="_blank">
+              開啟優惠券
+            </a>
             <a class="button" href="https://www.google.com/maps/search/?api=1&query=Bic+Camera+Tenjin+Fukuoka" target="_blank">
               Google 地圖
             </a>
@@ -1091,14 +942,14 @@
         <div class="coupon-card">
           <div class="store-icon">🛒</div>
           <h3>Don Quijote／MEGA Donki</h3>
-          <span class="status pending">🟡 出發前再次確認券面</span>
-          <p>海外旅客常見免稅與額外折扣，適合藥妝、零食與伴手禮。</p>
-          <p class="small">酒類、香菸、票卡與部分商品可能不適用。</p>
+          <span class="status">🟢 旅客優惠券</span>
+          <p>依消費金額可能有額外 5% 或 7% 折扣，並可搭配免稅流程。</p>
+          <p class="small">付款前出示券面；酒類、香菸、票卡與部分商品可能排除。</p>
 
           <div class="button-row">
-            <button class="button green" onclick="openCoupon('Don Quijote', 'donki')">
-              查看券面說明
-            </button>
+            <a class="button green" href="https://japanportal.donki-global.com/coupon/?ptcd=0124000101" target="_blank">
+              開啟優惠券
+            </a>
             <a class="button" href="https://www.google.com/maps/search/?api=1&query=Mega+Don+Quijote+Fukuoka+Tenjin" target="_blank">
               Google 地圖
             </a>
@@ -1108,14 +959,14 @@
         <div class="coupon-card">
           <div class="store-icon">💊</div>
           <h3>Matsumoto Kiyoshi</h3>
-          <span class="status">🟢 目前資料顯示至 2027/3/31</span>
-          <p>適合藥品、保健品、化妝品與日用品。</p>
-          <p class="small">通常需免稅資格與護照，付款前確認券面條件。</p>
+          <span class="status">🟢 優惠資料至 2027/3/31</span>
+          <p>藥品、保健品、化妝品與日用品優惠入口。</p>
+          <p class="small">部分優惠僅限特定免稅店或符合條件的消費。</p>
 
           <div class="button-row">
-            <button class="button green" onclick="openCoupon('Matsumoto Kiyoshi', 'matsukiyo')">
-              查看券面說明
-            </button>
+            <a class="button green" href="https://japancouponguide.com/en/coupons/" target="_blank">
+              開啟優惠券
+            </a>
             <a class="button" href="https://www.google.com/maps/search/?api=1&query=Matsumoto+Kiyoshi+Tenjin+Fukuoka" target="_blank">
               Google 地圖
             </a>
@@ -1124,99 +975,18 @@
 
         <div class="coupon-card">
           <div class="store-icon">💊</div>
-          <h3>SUNDRUG</h3>
-          <span class="status">🟢 2026/10/1–2027/9/30 活動資料</span>
-          <p>適合藥妝、保健品、日用品與化妝品。</p>
-          <p class="small">集中同店結帳較容易達到折扣門檻。</p>
-
-          <div class="button-row">
-            <button class="button green" onclick="openCoupon('SUNDRUG', 'sundrug')">
-              查看券面說明
-            </button>
-            <a class="button" href="https://www.google.com/maps/search/?api=1&query=SUNDRUG+Tenjin+Fukuoka" target="_blank">
-              Google 地圖
-            </a>
-          </div>
-        </div>
-
-        <div class="coupon-card">
-          <div class="store-icon">💊</div>
           <h3>Cocokara Fine</h3>
-          <span class="status">🟢 目前資料顯示至 2027/3/31</span>
-          <p>藥品、保健品、美妝與生活用品。</p>
-          <p class="small">實際優惠依店舖與券面為準。</p>
+          <span class="status">🟢 官方優惠入口</span>
+          <p>藥品、保健品、美妝與生活用品優惠。</p>
+          <p class="small">部分免稅店不適用，請先確認分店。</p>
 
           <div class="button-row">
-            <button class="button green" onclick="openCoupon('Cocokara Fine', 'cocokara')">
-              查看券面說明
-            </button>
+            <a class="button green" href="https://en.matsumotokiyoshi.net/coupon" target="_blank">
+              開啟優惠券
+            </a>
             <a class="button" href="https://www.google.com/maps/search/?api=1&query=Cocokara+Fine+Tenjin+Fukuoka" target="_blank">
               Google 地圖
             </a>
-          </div>
-        </div>
-
-        <div class="coupon-card">
-          <div class="store-icon">🛍️</div>
-          <h3>福岡 PARCO</h3>
-          <span class="status pending">🟡 使用 POCKET PARCO App</span>
-          <p>先將福岡 PARCO 加入 App 的常去 PARCO，再查看當期優惠。</p>
-          <p class="small">目前不把特定日期以外的活動當成固定優惠券。</p>
-
-          <div class="button-row">
-            <button class="button green" onclick="openCoupon('福岡 PARCO', 'parco')">
-              查看使用方式
-            </button>
-            <a class="button" href="https://www.google.com/maps/search/?api=1&query=Fukuoka+PARCO" target="_blank">
-              Google 地圖
-            </a>
-          </div>
-        </div>
-
-        <div class="coupon-card">
-          <div class="store-icon">👟</div>
-          <h3>ABC-MART／Salomon／On</h3>
-          <span class="status pending">🟡 目前沒有確認中的通用 QR 券</span>
-          <p>鞋店以品牌活動、店內 Sale、免稅與庫存為主。</p>
-          <p class="small">買鞋前先比較價格、尺寸與是否可免稅。</p>
-
-          <div class="button-row">
-            <button class="button green" onclick="openCoupon('運動鞋店', 'shoes')">
-              查看購買建議
-            </button>
-            <a class="button" href="https://www.google.com/maps/search/?api=1&query=Salomon+Store+ONE+FUKUOKA+BLDG" target="_blank">
-              Google 地圖
-            </a>
-          </div>
-        </div>
-
-        <div class="coupon-card">
-          <div class="store-icon">👕</div>
-          <h3>UNIQLO／GU</h3>
-          <span class="status pending">🟡 目前沒有確認中的通用 QR 券</span>
-          <p>先確認期間限定價與免稅條件。</p>
-          <p class="small">若沒有專屬折扣，使用海外回饋高的信用卡即可。</p>
-
-          <div class="button-row">
-            <button class="button green" onclick="openCoupon('UNIQLO／GU', 'uniqlo-gu')">
-              查看購買建議
-            </button>
-            <a class="button" href="https://www.google.com/maps/search/?api=1&query=UNIQLO+Tenjin+Fukuoka" target="_blank">
-              Google 地圖
-            </a>
-          </div>
-        </div>
-
-        <div class="coupon-card">
-          <div class="store-icon">🧳</div>
-          <h3>Radical Storage</h3>
-          <span class="status">🟢 飯店提供的服務連結</span>
-          <p>最後一天在天神寄放行李，逛完取件後直接去機場。</p>
-
-          <div class="button-row">
-            <button class="button orange" onclick="openCoupon('Radical Storage', 'luggage')">
-              查看使用說明
-            </button>
           </div>
         </div>
 
@@ -1229,145 +999,7 @@
     福岡旅行導覽｜最後更新：2026/10/18
   </footer>
 
-  <!-- 優惠券彈窗 -->
-  <div id="couponModal" class="modal" onclick="closeCouponOutside(event)">
-    <div class="modal-box">
-      <button class="close-modal" onclick="closeCoupon()">×</button>
-      <h2 id="modalTitle">優惠券</h2>
-      <div id="modalContent"></div>
-      <button class="button gray" onclick="closeCoupon()">關閉</button>
-    </div>
-  </div>
-
   <script>
-    const couponData = {
-      "bic-camera": {
-        title: "⚡ Bic Camera 優惠說明",
-        content: `
-          <div class="coupon-placeholder">
-            <strong>目前尚未放入 QR code 圖片</strong><br>
-            請點擊下方官方入口查看最新券面。
-          </div>
-          <p>目前資料顯示優惠期限至 2026/10/31，涵蓋你的旅程日期。</p>
-          <p>付款前出示手機優惠券與護照，並確認商品是否適用。</p>
-          <a class="button green" href="https://livejapan.com/public/operation/coupon/biccamera/en.html" target="_blank">
-            開啟官方券面
-          </a>
-        `
-      },
-
-      "donki": {
-        title: "🛒 Don Quijote 優惠說明",
-        content: `
-          <div class="coupon-placeholder">
-            <strong>請在付款前開啟最新券面</strong><br>
-            目前先保留官方優惠入口，避免使用過期條碼。
-          </div>
-          <p>先出示優惠券，再出示護照辦免稅，最後付款。</p>
-          <p>酒類、香菸、票卡與部分商品可能排除。</p>
-          <a class="button green" href="https://japanportal.donki-global.com/coupon/?ptcd=0124000101" target="_blank">
-            開啟官方券面
-          </a>
-        `
-      },
-
-      "matsukiyo": {
-        title: "💊 Matsumoto Kiyoshi 優惠說明",
-        content: `
-          <div class="coupon-placeholder">
-            <strong>優惠券圖片待補入</strong><br>
-            目前顯示使用規則與官方優惠入口。
-          </div>
-          <p>建議將藥妝集中在同一家店結帳，先出示優惠券，再辦免稅。</p>
-          <p>記得攜帶護照，並確認藥品、化妝品與日用品是否能合併計算。</p>
-        `
-      },
-
-      "sundrug": {
-        title: "💊 SUNDRUG 優惠說明",
-        content: `
-          <div class="coupon-placeholder">
-            <strong>優惠券圖片待補入</strong><br>
-            目前顯示使用規則與日期提醒。
-          </div>
-          <p>活動資料涵蓋 2026/10/25–10/28，但仍請以當天券面為準。</p>
-          <p>付款前出示優惠券與護照，集中同店消費較容易達到折扣門檻。</p>
-        `
-      },
-
-      "cocokara": {
-        title: "💊 Cocokara Fine 優惠說明",
-        content: `
-          <div class="coupon-placeholder">
-            <strong>優惠券圖片待補入</strong><br>
-            實際條件依當天券面與分店為準。
-          </div>
-          <p>建議先確認折扣門檻，再決定是否集中購買。</p>
-          <p>付款前出示優惠券，之後再辦免稅。</p>
-        `
-      },
-
-      "parco": {
-        title: "🛍️ 福岡 PARCO 使用方式",
-        content: `
-          <div class="coupon-placeholder">
-            <strong>PARCO 優惠不是固定 QR code</strong><br>
-            請使用 POCKET PARCO App 查看當期優惠。
-          </div>
-          <p>操作方式：</p>
-          <p>1. 下載 POCKET PARCO App。</p>
-          <p>2. 將「福岡 PARCO」加入常去的 PARCO。</p>
-          <p>3. 到 Coupon 分頁查看 10/25–10/28 當期優惠。</p>
-          <a class="button green" href="https://tw.fukuoka.parco.jp/pnews/detail/?id=36479" target="_blank">
-            官方說明
-          </a>
-        `
-      },
-
-      "shoes": {
-        title: "👟 運動鞋購買建議",
-        content: `
-          <div class="coupon-placeholder">
-            <strong>目前沒有確認中的通用 QR 折價券</strong>
-          </div>
-          <p>買鞋時依序確認：</p>
-          <p>1. 店內 Sale 或品牌活動。</p>
-          <p>2. 是否可以免稅。</p>
-          <p>3. 同款在 ABC-MART、MURASAKI SPORTS 與品牌店的價格。</p>
-          <p>4. 尺寸與退換貨規定。</p>
-          <p>付款建議：若信用卡海外回饋高，通常優先刷卡。</p>
-        `
-      },
-
-      "uniqlo-gu": {
-        title: "👕 UNIQLO／GU 購買建議",
-        content: `
-          <div class="coupon-placeholder">
-            <strong>目前沒有確認中的通用旅客 QR 折價券</strong>
-          </div>
-          <p>先確認期間限定價與免稅條件。</p>
-          <p>符合免稅資格時攜帶護照辦理免稅。</p>
-          <p>沒有專屬折扣時，使用海外回饋高的信用卡即可。</p>
-        `
-      },
-
-      "luggage": {
-        title: "🧳 Radical Storage 使用說明",
-        content: `
-          <div class="coupon-placeholder">
-            <strong>這不是折價券，而是行李寄放服務</strong>
-          </div>
-          <p>最後一天退房後，直接帶行李到天神寄放。</p>
-          <p>建議預約寄放：10:15–10:30。</p>
-          <p>建議取件時間：15:00–15:30。</p>
-          <p>取件後直接搭地下鐵前往福岡機場。</p>
-          <a class="button orange" href="https://radicalstorage.com/?acc=c8758b517083196f05ac29810b924aca" target="_blank">
-            開啟預約頁面
-          </a>
-        `
-      }
-    };
-
     function openTab(tabId, button) {
       document.querySelectorAll(".tab-content").forEach(function(section) {
         section.classList.remove("active");
@@ -1391,26 +1023,6 @@
         behavior: "smooth",
         block: "start"
       });
-    }
-
-    function openCoupon(title, key) {
-      const data = couponData[key];
-
-      document.getElementById("modalTitle").textContent = data.title;
-      document.getElementById("modalContent").innerHTML = data.content;
-      document.getElementById("couponModal").classList.add("show");
-      document.body.style.overflow = "hidden";
-    }
-
-    function closeCoupon() {
-      document.getElementById("couponModal").classList.remove("show");
-      document.body.style.overflow = "";
-    }
-
-    function closeCouponOutside(event) {
-      if (event.target.id === "couponModal") {
-        closeCoupon();
-      }
     }
   </script>
 
